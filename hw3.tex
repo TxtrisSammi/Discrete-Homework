@@ -1,0 +1,296 @@
+\documentclass{homework}
+\author{Morales, Samantha}  % Uncomment with your name
+\class{MATH 3503: Tashfeen's Discrete Mathematics}
+\date{Spring 2023}  % Uncomment with your semester
+\title{Homework 3}
+\address{
+  Computer Science, %
+  Petree College of Arts \& Sciences, %
+  Oklahoma City University
+}
+
+\begin{document} \maketitle
+
+\question Please read chapters 3 and 4 of Chartrand et al. and write a couple sentences about a topic/example/concept that you found difficult or interesting and why?
+
+\begin{sol}
+	The proof by induction on 4.36 seemed particularly interesting to me. Mostly because I don't entirely understand how we were able to prove that a number is $\leq$ a number in the Fibonacci sequence
+	without using the explicit definition of the Fibonacci sequence. Or maybe it is being used and I am not seeing it... Regardless, I find it interesting because I don't fully understand it.
+\end{sol}
+
+\question Consider the following quantified statement: For every real number $x$, there exists a positive real number $y$ such that $y < x^2$.
+
+\begin{enumerate}[label=(\alph*)]
+	\item Express this quantified statement in symbols.
+	      \begin{sol}
+		      \[
+			      \forall x \in \R, \exists y \in \R (y > 0 \wedge y < x^2)
+		      \]
+	      \end{sol}
+
+	\item Express the negation of this quantified statement in symbols.
+	      \begin{sol}
+		      \begin{align*}
+			      \neg  (\forall x \in \R, \exists y \in \R (y > 0 \wedge y < x^2)) \\
+			      \exists x \in \R, \forall y \in \R(y \leq 0 \vee x^2 \leq y)
+		      \end{align*}
+	      \end{sol}
+
+	\item Express the negation of this quantified statement in words.
+
+	      \begin{sol}
+		      For every real non-positive $y$, there exists $x$ such that $x^2 \leq y$.
+	      \end{sol}
+
+\end{enumerate}
+
+\question Prove that if $r$ and $s$ are rational numbers, then $r - s$ is a rational number.
+
+\begin{sol}
+	\begin{proof}
+		if $r, s \in \Q$, then $(r - s) \in \Q$  % state the original proof statement here.
+		\begin{enumerate}
+			\item Assume $r, s \in Q$
+			\item Then, $r = \frac{a}{b}$, $s = \frac{c}{d}$ for some $a, b, c, d \in \Z$, $b \neq 0 \wedge d \neq 0$
+			\item $r - s = \frac{a}{b} - \frac{c}{d} = \frac{ad-cb}{bd}$
+			\item $(ad - cb), bd \in \Z$ since integers remain integers when subtracted or multiplied.
+			\item $\frac{ad-cb}{bd} \in \Q$, since it is an integer over an integer.
+			\item Therefore, $r - s \in \Q$ % reiterate over what you proved \qedhere
+		\end{enumerate}
+	\end{proof}
+\end{sol}
+
+\question Let $x$ and $y$ be integers. Prove that if $x + y \geq 9$, then either $x \geq 5$ or $y \geq 5$.
+
+
+\begin{sol}
+	\begin{proof}[Proof by Contrapositive] % state the original proof statement here.
+		$x, y \in \Z $, if $x + y = 9$, then $x \geq 5 \vee y \geq y$
+		\begin{enumerate}
+			\item Assume $x < 5 \wedge y < 5$ and $x, y \in \Z$
+			\item Then, the maximum possible $x + y$ is $4 + 4 = 8$
+			\item Therefore, $x + y$ must be $< 9$
+			\item Since the conditional statement $\is$ contrapositive, and we proved the contrapositive, the original statement must be true.% reiterate over what you proved \qedhere
+		\end{enumerate}
+	\end{proof}
+\end{sol}
+
+
+\question Let $m$ and $n$ be two integers. Prove that $mn$ and $m + n$ are both even if and only if $m$ and $n$ are both even.
+
+\begin{sol}
+	\begin{proof}
+		$m + n$ is even $ \iff (m \wedge n$ is even) $\vee$ $(m \wedge n$ is odd)
+		% $m + n$ is even $ \iff (m \neg \oplus n)$ is even
+
+		\begin{enumerate}
+			\item Assume $m, n \in \Z$ and $ m \wedge n$ are even
+			\item All even numbers are logically equivalent to $0 (mod 2)$
+			\item Then, $m \is 0 (mod 2) \wedge n \is 0 (mod 2)$
+			\item $0 + 0 = 0$
+			\item $1 + 1 = 2 \is 0 (mod 2)$
+			\item $1 + 0 = 1$
+			\item Thus, $m + n$ is even $ \iff (m \wedge n$ is even) $\vee$ $(m \wedge n$ is odd).
+		\end{enumerate}
+	\end{proof}
+
+	\begin{proof}[Proof by Contradiction] $mn$ is even $\iff m \vee n$ is even.
+		\begin{enumerate}
+			\item Assume for the sake of contradiction that $mn$ is even and $m \wedge n$ are odd
+			\item Since $m$ is odd, $m = 2j + 1$ and $n = 2k + 1$, $j, k \in \Z$
+			\item $mn = (2j + 1) (2k + 1)$
+			\item $mn = 4jk + 2j + 2k + 1 = 2(2jk + j + k) + 1$
+			\item $(2jk + j + k) = l, l \in \Z$ because integers remain integers when added or multiplied.
+			\item So $mn = 2l + 1$
+			\item That is a contradiction since we assumed mn to be even.
+			\item Therefore, $mn$ is even $\iff m \vee n$ is even.
+		\end{enumerate}
+	\end{proof}
+
+
+	\begin{proof}
+		$m, n \in \Z$, $(m + n) \wedge (mn)$ are both even $\iff m \wedge n$ are even.
+		\begin{enumerate}
+			% How deep does my proof need to be? Can I write multiple proofs?
+			\item Assume that $mn$ and $m + n$ are both even
+			\item Then ($m \vee n$ is even) $\wedge$ $((m \wedge n$ is even) $\vee$ $(m \wedge n$ is odd))
+			\item if $m$ is even and $n$ is odd, we get (True) $\wedge$ (False $\vee$ False) $\is$ False.
+			\item if $n$ is even and $m$ is odd, we get (True) $\wedge$ (False $\vee$ False) $\is$ False.
+			\item if $m$ and $n$ are both odd, we get (False) $\wedge$ (False $\vee$ True) $\is$ False.
+			\item if $m$ and $n$ are both even, we get (True) $\wedge$ (True $\vee$ False) $\is$ True.
+			\item Therefore $m, n \in \Z$, $(m + n) \wedge (mn)$ are both even $\iff m \wedge n$ are even
+		\end{enumerate}
+	\end{proof}
+\end{sol}
+
+
+
+\question Disprove: Let $A, B$ and $C$ be sets. If $A \cup B = A \cup C$, then $B = C$.
+
+\begin{sol}
+	\begin{enumerate}
+		\item The statement $A \cup B = A \cup C$ is true for sets $A\{1, 2, 3\}$, $B\{2, 4\}$ $C\{2, 5\}$
+		\item $A \cup B = \{2\}$ and $A \cup C = \{2\}$
+		\item However, $B \neq C$
+		\item Therefore the statement If $A \cup B = A \cup C$, then $B = C$ is not true.
+	\end{enumerate}
+\end{sol}
+
+\question Prove that if $a$ and $b$ are positive real numbers, then $\sqrt{a} + \sqrt{b} \neq \sqrt{a+b}$.
+
+\begin{sol} % By contradiction
+	\begin{proof}[Proof by contradiction]
+		$a, b \in \R$, $a > 0 \wedge b > 0 \Ra \sqrt{a} + \sqrt{b} \neq \sqrt{a + b}$
+		\begin{enumerate}
+			\item Assume for the sake of contradiction that $a, b \in \R$, $a > 0$ and $b > 0$, $\sqrt{a} + \sqrt{b} = \sqrt{a + b}$
+			\item Then, $(\sqrt{a} + \sqrt{b})^2 = (\sqrt{a + b})^2$ 
+			\item $(\sqrt{a} + \sqrt{b})^2 = a + 2ab + b$, $(\sqrt{a + b})^2 = a + b$
+			\item That is a contradiction since $a + 2ab + b \neq a + b$
+			\item Therefore, $\sqrt{a} + \sqrt{b} \neq \sqrt{a+b}$, if a and b are positive real numbers.
+		\end{enumerate}
+	\end{proof}
+\end{sol}
+
+
+\question Let $r \geq 2$ be an integer. Prove that $1 + r + r^{2} + \cdots + r^{n} = \frac{r^{n+1}-1}{r-1}$ for every positive integer $n$.
+
+\begin{sol}
+	\begin{proof}[Proof by Induction] % original statement.
+		$1 + r + r^{2} + \cdots + r^{n} = \frac{r^{n+1}-1}{r-1}$ for every positive integer $n$.
+
+    \textbf{Basis:} Take $n\in\{1, 2\}$ then we have,
+    \[
+        1 + r = \frac{r^{1+1}-1}{r-1} = \frac{(r-1)(r+1)}{r-1} = 1 + r,\quad
+        1 + r + r^2 = \frac{r^{2+1}-1}{r-1} = \frac{(r^2 + r + 1)(r-1)}{r-1} = 1 + r + r^2
+    \]
+    \textbf{Inductive Hypothesis:} Assume for some positive integer $k$,
+    \[
+		1 + r + r^{2} + \cdots + r^{k} = \frac{r^{k+1}-1}{r-1}
+    \]
+    \textbf{Inductive Step:} We show the bellow by induction on $k$,
+	\begin{align*}
+		1 + r + r^{2} + \cdots + r^{k} = \frac{r^{k+1}-1}{r-1} \Ra 1 + r + r^{2} + \cdots + r^{k + 1} = \frac{r^{k+2}-1}{r-1} \\
+		1 + r + r^{2} + \cdots + r^{k} + r^{k+1} = \frac{r^{k+1}-1}{r-1} + r^{k+1} = \frac{r^{k+1}-1 + r^{k+1}(r-1)}{r-1} \\
+		\frac{r^{k+1}-1 + r^{k+2}-r^{k+1}}{r-1} = \frac{-1 + r^{k+2}}{r-1} = \frac{r^{k+2}-1}{r-1}\\
+	\end{align*}
+
+    % use your inductive hypothesis to show your inductive step.
+
+    Then by induction on $k$ we showed that $1 + r + r^{2} + \cdots + r^{n} = \frac{r^{n+1}-1}{r-1}$ for every positive integer $n$. % reiterate the original statement. \qedhere
+\end{proof}
+\end{sol}
+
+\question Prove that $\frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \cdots + \frac{1}{\sqrt{n}} > \sqrt{n+1} $ for every integer $n\geq 3$.
+
+\begin{sol}
+\begin{proof}[Proof by Induction] $\frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \cdots + \frac{1}{\sqrt{n}} > \sqrt{n+1} $ for every integer $n\geq 3$.	% original statement.
+
+    \textbf{Basis:} Take $n\in\{3, 4\}$ then we have,
+		\begin{align*}
+			\frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{3}} \approx 2.29 > \sqrt{n+1} = \sqrt{4}=2 \\
+			\frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{3}} + \frac{1}{\sqrt{4}} \approx 2.78 > \sqrt{n+1} = \sqrt{5}=2.24 \\
+		\end{align*}
+    \textbf{Inductive Hypothesis:} Assume for some $n \geq 3$,
+    \[
+	\sqrt{1} + \sqrt{\tfrac{1}{2}} + \cdots + \sqrt{\tfrac{1}{n}} > \sqrt{n+1}.
+    \]
+    \textbf{Inductive Step:} We show the bellow by induction on $n$,
+	\begin{align*}
+		\sqrt{1} + \sqrt{\tfrac{1}{2}} + \cdots + \sqrt{\tfrac{1}{n}} > \sqrt{n+1} \Ra \sqrt{n+1} + \sqrt{\tfrac{1}{n+1}} > \sqrt{n+2}. \\
+		\sqrt{n+1}+\sqrt{\tfrac{1}{n+1}} > \sqrt{n+2} \\
+		(n+1) + 2 + (\tfrac{1}{n+1}) > n+2 \\
+		2 + \tfrac{1}{n+1} > 1 \\
+		1 + \tfrac{1}{n+1} > 0 \\
+	\end{align*} 
+    % use your inductive hypothesis to show your inductive step.
+    Then by induction on $n$ $\frac{1}{\sqrt{1}} + \frac{1}{\sqrt{2}} + \cdots + \frac{1}{\sqrt{n}} > \sqrt{n+1} $ for every integer $n\geq 3$.	% original statement. % reiterate the original statement. \qedhere
+\end{proof}
+\end{sol}
+
+\question A sequence $a_{1}, a_{2}, a_{3},\cdots$ is defined recursively by $a_{1} = 3$ and $a_{n} = 2a_{n-1} + 1$ for $n\geq 2$.
+\begin{enumerate}[label=(\alph*)]
+	\item Determine $a_{2}, a_{3}, a_{4},$ and $a_{5} $.
+	\begin{sol}
+		\begin{align*}
+			a_2 = 7\\
+			a_3 = 15\\
+			a_4 = 31\\
+			a_5 = 63\\
+		\end{align*}
+	\end{sol}
+	\item Based on the values obtained in (a), make a guess for a formula for $a_{n}$ for every positive integer $n$ and use induction to verify that your guess is correct.
+	      \begin{sol}
+	\begin{proof}[Proof by Induction] $a_n = 2^{n + 1} - 1$	% original statement.
+
+    \textbf{Basis:} Take $n\in\{2, 3\}$ then we have,
+    \[
+        a_2 = 2^{2 + 1} - 1 = 7,\quad
+        a_3 = 2^{3 + 1} - 1 = 15
+    \]
+    \textbf{Inductive Hypothesis:} Assume for all positive integers till some positive integer $k$,
+    \[
+        a_k = 2^{k + 1} - 1
+    \]
+    \textbf{Inductive Step:} We show the bellow by induction on $k$,
+	\begin{align*}
+		a_k = 2^{k + 1} - 1 \Ra a_{k + 1} = 2^{k + 2} - 1 \\
+		a_{k + 1} = 2a_k + 1 = 2(2^{k + 1} - 1) + 1 = 2^{k + 2} - 1 \\
+	\end{align*}
+    % use your inductive hypothesis to show your inductive step.
+    Then by induction on $n$ we showed that $a_n = 2^{n + 1} - 1$ % reiterate the original statement. \qedhere
+\end{proof}
+\end{sol}
+\end{enumerate}
+
+\question In Example 4.36, we saw that $n^{th}$ Fibonacci number $F_{n} \leq 2^{n}$. Prove that $F_{n}\leq (\frac{5}{3})^{n}$ for every positive integer $n$.
+
+\begin{sol}
+	\begin{proof}[Proof by Induction] $F_{n}\leq (\frac{5}{3})^{n}$ for every positive integer $n$. % original statement.
+
+    \textbf{Basis:} Take $n\in\{1, 2\}$ then we have,
+    \[
+        F_1 = 1 \leq (\frac{5}{3})^{n}, \quad
+        F_2 = 1 \leq (\frac{5}{3})^{n}
+    \]
+    \textbf{Inductive Hypothesis:} Assume for some positive integer $k$,
+    \[
+        F_k \leq (\frac{5}{3})^{k}
+    \]
+    \textbf{Inductive Step:} We show the bellow by induction on $k$,
+    \[
+        F_{k + 1} \leq 2F_k \leq 2(\frac{5}{3})^{k} = (\frac{5}{3})^{k + 1}
+    \]
+    % use your inductive hypothesis to show your inductive step.
+
+    Then by induction on $k$ we showed that $F_{n}\leq (\frac{5}{3})^{n}$ for every positive integer $n$. % reiterate the original statement. \qedhere
+\end{proof}
+\end{sol}
+
+\question A sequence \{$a_{n}$\} is defined recursively by $a_{1} = 5$, $a_{2} = 7$ and ${a_{n} = 3a_{n-1}-2a_{n-2}-2}$ for $n\geq3$. Prove that $a_{n} = 2n + 3$ for every positive integer $n$.
+
+\begin{sol}
+	\begin{proof}[Proof by Induction] $a_{n} = 2n + 3$ for every positive integer $n$. % original statement.
+
+    \textbf{Basis:} Take $n\in\{1, 2\}$ then we have,
+    \[
+		a_1 = 2(1) + 3 = 5, \quad
+		a_2 = 2(2) + 3 = 7
+    \]
+    \textbf{Inductive Hypothesis:} Assume for some positive integer $k$,
+    \[
+		a_k = 2k + 3, \quad
+		a_{k-1} = 2(k-1) + 3 = 2k + 1
+    \]
+    \textbf{Inductive Step:} We show the bellow by induction on $k$,
+	\begin{align*}
+			a_k = 2k + 3 \Ra a_{k+1} = 2{k+1} + 3 = 2k + 5 \\
+			a_{k+1} = 3a_k - 2a_{k-1} - 2 = 3(2k+3) - 2(2k+1) - 2\\
+			a_{k+1 }= 6k + 9 - 4k + 2 - 2 = 2k + 5 \\
+	\end{align*}
+    % use your inductive hypothesis to show your inductive step.
+
+    Then by induction on $k$ we showed that $a_{n} = 2n + 3$ for every positive integer $n$. % reiterate the original statement. \qedhere
+\end{proof}
+\end{sol}
+
+\end{document}

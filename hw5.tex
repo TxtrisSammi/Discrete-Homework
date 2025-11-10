@@ -1,0 +1,132 @@
+\documentclass{homework}
+\author{Morales, Samantha}  % Uncomment with your name
+\class{MATH 3503: Tashfeen's Discrete Mathematics}
+\date{\today}  % Uncomment with your semester
+\title{Homework 5}
+\address{
+  Computer Science, %
+  Petree College of Arts \& Sciences, %
+  Oklahoma City University
+}
+
+\begin{document} \maketitle
+
+\question Please read chapter 8 of Chartrand et al. and write a couple sentences about a topic/example/concept that you found difficult or interesting and why?
+\begin{sol}
+    Honestly, I found the entire concept of the chapter very interesting. I like the fact that it deals with seemingly simple concepts such as counting or the pidgeon hole principle
+    (which really just means that if you have more things than containers at least one container has more than one thing in it [it gets a little more specific than that,,, but that the essence]).
+    but it goes in depth into the concepts, showing just how complex simple-seeming tasks can be. This chapter mostly felt like an abstraction of common sense in a way that really makes you think
+    about how you're thinking. I feel like this also shows itself in the way that I solved some of these questions. I feel like some of my solutions had less to do with the textbook and more with
+    what just kind of made sense to me.
+\end{sol}
+
+\question Each student at a certain university is given a 6-digit code (such as 123789 or 001122).
+\begin{enumerate}[label=(\alph*)]
+    \item How many different codes are there?
+          \begin{sol}
+              $10^6$ 6 digits, 10 possible values per digit.
+          \end{sol}
+    \item How many codes read the same forward and backward?
+          \begin{sol}
+              $10^3$ really we're just looking for a 3 digit code because the second half is fixed.
+          \end{sol}
+    \item How many codes contain only odd digits?
+          \begin{sol}
+              $5^6$ same number of digits, but we only have 5 possible values, 1, 3, 5, 7, and 9.
+          \end{sol}
+    \item How many codes contain at least one even digit?
+          \begin{sol}
+              $10^6 - 5^6$ take the number of 6 digit codes and subtract all the ones made entirely of odds.
+          \end{sol}
+\end{enumerate}
+
+\question How many different 10-bit strings begin with 1011 or 0110?
+\begin{sol}
+    $2^6 \times 2$ we're really looking for 2 sets of 6 digit strings (since the first 4 digits are fixed and we have 2 options).
+\end{sol}
+
+\question A password on a computer system consists of four characters, each of which is either a digit or a letter of the alphabet. Suppose that each password must contain at least one digit and at least one letter. How many different such passwords are there?
+\begin{sol}
+    $62^{4} - 52^{4} - 10^{4}$ We take the total number of possible passwords (26 lowercase letters + 26 upper + 10 digits) and subtract the ones that contain only numbers and the ones that contain only letters.
+\end{sol}
+
+\question A total of 70 students who go to football, basketball or hockey games on a regular basis are surveyed as to which of these three events they attend. They responded:
+
+38 students go to football games. \par
+38 students go to basketball games. \par
+35 students go to hockey games. \par
+17 students go to both football and basketball games. \par
+15 students go to both football and hockey games. \par
+16 students go to both basketball and hockey games. \\
+How many go to all three?
+
+\begin{sol}
+    $7$ Honestly I just added subtracted the amount of students that went to more than 1 game from the first sets of numbers given and then figured out how many students had attended only 1 sport, and added how many had attended 2. I had 63 so the remaining 7 students must have attended all 3 games (this feels hard to explain but it makes sense to me).
+\end{sol}
+
+\question How many people must be present to guarantee that
+\begin{enumerate}[label=(\alph*)]
+    \item at least two have the same birthday?
+          \begin{sol}
+              $367$ number of days in a year (366 if we include leap year) + 1
+          \end{sol}
+    \item at least two of their birthdays are in the same month?
+          \begin{sol}
+              $13$ number of months + 1
+          \end{sol}
+    \item at least three of their birthdays are in one of the months January, February, March, April or at least four of their birthdays are in one of the remaining months?
+          \begin{sol}
+              $33$ we have to find the number right before the guarantee, so 4 months with 2 people, plus 8 months with 3 people = 32. Now if just one more person is added the condition will be met.
+          \end{sol}
+\end{enumerate}
+
+\question How many different 8-bit strings contain exactly 5 1s?
+\begin{sol}
+    $\binom{8}{5} = 56$ we're choosing 5/8 positions, (and by extension the remaining 3) so we're just calculating the possible permutations.
+\end{sol}
+
+\question Show that $\binom{2n}{2} =2\binom{n}{2} + n^2$.
+\begin{sol}
+    \begin{proof}
+        $\binom{2n}{2} =2\binom{n}{2} + n^2$  % state the original proof statement here.
+        \begin{enumerate}
+            \item Assume $\binom{2n}{2} =2\binom{n}{2} + n^2$
+                  \[
+                      \binom{2n}{2} = \frac{2n(2n - 1)}{2} = n(2n - 1) = 2n^2 - n.
+                  \]
+                  Also,
+                  \[
+                      2\binom{n}{2} + n^2 = 2\left(\frac{n(n - 1)}{2}\right) + n^2 = n(n - 1) + n^2 = 2n^2 - n.
+                  \]
+            \item they both equal $2n^2-n$ therefore they are equal to each other.
+        \end{enumerate}
+    \end{proof}
+\end{sol}
+
+\question A student committee is to consist of 3 seniors and 4 juniors. A total of 6 seniors and 8 juniors have volunteered to serve on the committee. How many committees are possible?
+\begin{sol}
+    $\binom{6}{3} \binom{8}{4} = 20 \times 70 = 1400$ 6 total seniors with at least 3 per committe, 8 total juniors with at least 4 per commitee. Just calculating permutations again
+\end{sol}
+
+\question A total of 5 seniors, 3 juniors and 4 sophomores have volunteered to serve on a 4-person committee. How many committees are possible if
+\begin{enumerate}[label=(\alph*)]
+    \item there is no other restriction on membership for the committee?
+          \begin{sol}
+              $\binom{12}{4} = 495$
+          \end{sol}
+    \item at least one senior, one junior and one sophomore must serve on the committee?
+          \begin{sol}
+              $495 - (35 + 126 + 70) + (1 + 5) = 270$ the number of groups minus the ones that contain no senions, no juniors, and no sophomores. we add back the ones that contained only sophomores and only seniors (inclusion-exclusion, also only 3 juniors so no committe of only juniors exists)
+          \end{sol}
+    \item at least 3 seniors must serve on the committee?
+          \begin{sol}
+              $\binom{5}{3} \binom{7}{1} + \binom{5}{4} = 75$ groups of 3 seniors + 1 plus the grops with 4 seniors.
+          \end{sol}
+    \item at least one senior must serve on the committee?
+          \begin{sol}
+              $495 - \binom{7}{4} = 460$ total groups minus the ones with no seniors.
+          \end{sol}
+\end{enumerate}
+
+
+\end{document}
