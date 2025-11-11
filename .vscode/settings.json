@@ -6,5 +6,4 @@
         "**/*.log": true,
         "**/*.out": true
     },
-    "explorer.excludeGitIgnore": false
 }
