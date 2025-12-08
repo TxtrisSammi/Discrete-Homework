@@ -1,0 +1,83 @@
+\documentclass{homework}
+\author{Morales, Samantha}  % Uncomment with your name
+\class{MATH 3503: Tashfeen's Discrete Mathematics}
+\date{\today}  % Uncomment with your semester
+\title{Homework 7}
+\address{
+  Computer Science, %
+  Petree College of Arts \& Sciences, %
+  Oklahoma City University
+}
+
+\begin{document} \maketitle
+
+\question Please read chapter 10 of Chartrand et al. and write a couple sentences about a \\ topic/example/concept that you found difficult or interesting and why?
+\begin{sol}
+	Honestly I didn't really find anything in this chapter to be particularly challenging, this was definetly the most intuitive chapter yet.
+\end{sol}
+
+\question During the last class period of the semester, each student in a graduate computer science class with 10 students is required to give a brief report on his or her class project. The professor randomly selects the order in which the reports are to be given. Two students have been working on similar projects and would like to give their reports consecutively. What is the probability that this will happen?
+\begin{sol}
+	If we treate the 2 students as 1 (since they have to be consecutive) then we have $9! \times 2$ favorable permutations out of a possible $10!$ permutations.
+	$\frac{9! \times 2}{10!} = \frac{1}{10} \times 2 = \frac{1}{5}$
+\end{sol}
+
+\question A coin is flipped three times.
+
+\begin{enumerate}[label=(\alph*)]
+	\item What is the probability of getting three heads?
+	\begin{sol}
+	\\	$50\% \times 50\% \times 50\% = 12.5\%$
+	\end{sol}
+	\item What is the probability of getting three heads given that the first flip came up heads? 
+	\begin{sol}
+	\\	$50\% \times 50\% = 25\%$
+	\end{sol}
+	\item What is the probability of getting three heads given that the first two flips resulted in two heads?
+	\begin{sol}
+		$50\%$
+	\end{sol}
+	\item What is the probability of getting three heads given that the first three flips resulted in all heads?
+	\begin{sol}
+		$100\%$
+	\end{sol}
+	\item What is the probability of getting three heads given that at least one of the first two flips resulted in heads?
+	\begin{sol}
+		Theres normally 4 possible scenarios for the first 2 flips (HH, HT, TH, TT) but with this question we eliminate the TT state so now there are only 3 cases, 1 of which is favorable
+		$\frac{1}{3} \times \frac{1}{2} = \frac{1}{6}$ (I would keep the same formatting for answers but I am too lazy to write $\frac{1}{6}$ as a percentage).
+	\end{sol}
+	\item What is the probability of getting three heads given that at most one of the first two flips resulted in heads?
+	\begin{sol}
+		$0\%$
+	\end{sol}
+\end{enumerate}
+
+\question Three dice are tossed. What is the probability that 1 was obtained on two of the dice given that the sum of the numbers on the three dice is 7?
+\begin{sol}
+	The states where 3 dice return 7 are (5, 1, 1), (4, 2, 1), (3, 2, 2), and (3, 3, 1), the ones with 2 duplicate digits have only 3 permutations and (4, 2, 1) has 3! permutations.
+	$3 + 6 + 3 + 3 = 15$ possible outcomes, of which only the (5, 1, 1) combinations are favorable, which means we have $\frac{3}{15}$ favourable cases giving us $\frac{1}{5}$.
+\end{sol}
+
+\question Early each fall, a department store manager purchases a large number of winter sweaters. He pays $\$60$ for each sweater. Any sweater that isn't sold by Christmas will be sold for a $\$10$ dollar loss. Experience says that he can sell $40\%$ of them by Christmas if he prices the sweaters at $\$100$ each, he can sell $60\%$ of them if each is priced at $\$90$ and he can sell $70\%$ of them if they are priced at $\$80$ each. How should the manager price the sweaters?
+\begin{sol}
+	The manager should price them at \$90 because if they price the sweaters at \$100 their profit is $(0.4 \times 40) - (0.6 \times 10) = \$10$ 
+	at \$90 the expected value per sweater is $(0.6 \times 30) - (0.4 \times 10) = \$14$
+	finally we have \$80 per sweater which returns $(0.7 \times 20) - (0.3 \times 10) = \$11$
+	as you can see the highest average value per sweater is achieved when the sweaters are priced at \$90.
+\end{sol}
+
+\question A bowl contains 3 red balls, 2 white balls, and 1 blue ball
+\begin{enumerate}[label=(\alph*)]
+	\item What is the expected number of white balls obtained if three balls are selected at random from the bowl?
+	\begin{sol}
+	\\	$3 + 2 + 1 = 6$ balls total, 2 of which are white. meaning $\frac{2}{6}$ of the balls are white	
+	since we don't know the results of the previous selections, all 3 selections are a $\frac{1}{3}$ chance of being a white ball.
+	$\frac{1}{3} + \frac{1}{3} + \frac{1}{3} = 1$ which means that we expect to draw 1 ball if three are selected randomly.		
+	\end{sol}
+	\item What is the expected number of white balls obtained if three balls are selected at random from the bowl, one at a time, where a ball is returned to the bowl after it is selected?
+	\begin{sol}
+	\\	$3 + 2 + 1 = 6$ balls total, 2 of which are white. meaning $\frac{2}{6}$ of the balls are white
+		$\frac{2}{6} \times 3 = 1$ so the expected number of white balls if $3$ balls are selected at random and returned to the bowl is $1$
+	\end{sol}
+\end{enumerate}
+\end{document}
